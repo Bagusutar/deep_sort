@@ -256,8 +256,26 @@ def parse_args():
 
 
 if __name__ == "__main__":
-    args = parse_args()
+    # args = parse_args()
+    # run(
+    #     args.sequence_dir, args.detection_file, args.output_file,
+    #     args.min_confidence, args.nms_max_overlap, args.min_detection_height,
+    #     args.max_cosine_distance, args.nn_budget, args.display)
     run(
-        args.sequence_dir, args.detection_file, args.output_file,
-        args.min_confidence, args.nms_max_overlap, args.min_detection_height,
-        args.max_cosine_distance, args.nn_budget, args.display)
+        sequence_dir="MOT16/test/MOT16-06",
+        detection_file="resources/detections/MOT16_POI_test/MOT16-06.npy",
+        output_file="tmp/hypotheses.txt",
+        min_confidence=0.3,
+        min_detection_height=0,
+        nms_max_overlap=1.0,
+        max_cosine_distance=0.2,
+        nn_budget=100,
+        display=True,)
+
+
+# python deep_sort_app.py \
+#     --sequence_dir=./MOT16/test/MOT16-06 \
+#     --detection_file=./resources/detections/MOT16_POI_test/MOT16-06.npy \
+#     --min_confidence=0.3 \
+#     --nn_budget=100 \
+#     --display=True

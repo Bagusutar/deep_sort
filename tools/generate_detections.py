@@ -203,10 +203,19 @@ def parse_args():
 
 
 def main():
-    args = parse_args()
-    encoder = create_box_encoder(args.model, batch_size=32)
-    generate_detections(encoder, args.mot_dir, args.output_dir,
-                        args.detection_dir)
+    # args = parse_args()
+    # encoder = create_box_encoder(args.model, batch_size=32)
+    # generate_detections(encoder, args.mot_dir, args.output_dir,
+    #                     args.detection_dir)
+
+    encoder = create_box_encoder(model_filename="../resources/networks/mars-small128.pb", batch_size=32)
+    generate_detections(encoder, mot_dir="../MOT16/train", output_dir="../resources/detections/MOT16_train",
+                        detection_dir=None)
+
+    # python tools/generate_detections.py \
+    #     --model=resources/networks/mars-small128.pb \
+    #     --mot_dir=./MOT16/train \
+    #     --output_dir=./resources/detections/MOT16_train
 
 
 if __name__ == "__main__":
